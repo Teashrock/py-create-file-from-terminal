@@ -3,7 +3,7 @@ import os
 import sys
 
 
-def write_file(path: str):
+def write_file(path: str) -> None:
     file_contents = ""
     line_num = 1
     while True:
@@ -17,7 +17,9 @@ def write_file(path: str):
         if target_file.read() != "":
             target_file.write("\n")
         target_file.seek(0, 2)
-        target_file.write(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        target_file.write(
+            f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        )
         target_file.write(f"{file_contents}")
 
 
